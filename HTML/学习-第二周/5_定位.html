@@ -15,11 +15,14 @@
             position: absolute;
            
         }
+        #d0 div{
+            display: inline-block;
+        }
         #d1{
             background-color: aquamarine;
             height:100px;
             width:100px;
-            float :left;
+            /* float :left; */
             
            
         }
@@ -27,7 +30,7 @@
             background-color: black;
             height:100px;
             width:100px;
-            float :left;
+            /* float :left; */
             position: relative;
             left:50px;
             top:20px;
@@ -38,7 +41,7 @@
             background-color: cornflowerblue;
             height:100px;
             width:100px;
-            float :left;
+            /* float :left; */
             position:absolute;
             left:50px;
             top:20px;
@@ -57,6 +60,7 @@
 <body>
     <div id="d0">
         <div id="d1">111</div>
+        <!-- 块之间的边距因为div的回车换行产生。 -->
         <div id="d2">222</div>
         <div id="d3">333</div>
     </div>
