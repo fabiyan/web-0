@@ -148,6 +148,7 @@ body {
 
 #right>li:hover .list-menu{
     display: block;
+    z-index: 1;
 }
 
 .header{
@@ -157,28 +158,21 @@ body {
     margin: 0 auto;
     margin-top: 2px;
     position: relative;
+
 }
-.header-left{
+.header-l{
     float:left;
 }
-.header-right{
+.header-r{
     float:right;
     width:940px;
     height:90px;
     vertical-align: middle; 
     background-color: aqua;
     top:20px;
-    
-    position: relative;
 }
-.header-right-input{
-    width:800px;
-    height:90px;
-    background-color: black;
-     margin: 0 auto;
-     overflow: hidden;
-   }
-   .header .inp{
+
+.header .inp{
        width:495px;
        height:40px;
        margin-top:5px;
@@ -198,12 +192,7 @@ body {
        font-family: '\5FAE\8F6F\96C5\9ED1',arial,"\5b8b\4f53";
        border: 10px solid red;
    }
-   .header-right-input::after{
-       content:"";
-       display: block;
-       clear:both;
-   }
-   .header .header-right-list li{
-       color:white;
-   }
-
+  
+ .header-rlist{
+      clear:both;
+ }
