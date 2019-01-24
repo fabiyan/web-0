@@ -53,7 +53,7 @@
             <button @click="add()">添加</button>
             <input type="text" v-model="search" placeholder="请输入搜索内容"><button @click="sea()">搜索</button>
             <ul>
-                <li v-for="(obj,index) in list" :class="{active:obj.isA}" @click="color(obj)">
+                <li v-for="(obj,index) in showlist" :class="{active:obj.isA}" @click="color(obj)">
                   <input type="checkbox" v-model="buy" :value="obj">  {{obj.name}} <span>{{obj.value}}</span>
                 </li>
             </ul>
@@ -87,6 +87,24 @@
                 }],
                 search:'',
                 show:[{}],
+                showlist:[{
+                    name:'裤子',
+                    value:100,
+                    isA:false
+                },{             
+                    name:'衣服',
+                    value:200,
+                    isA:false
+                },{             
+                    name:'衬衫',
+                    value:300,
+                    isA:false
+                }],
+                buy:[{
+                    name:'',
+                    value:0,
+                    isA:false
+                }],
                 nam:'',
                 val:'',
                 flag:false
@@ -105,14 +123,22 @@
                   return count;
                 },
                 color(obj){
+                    let num;
                     obj.isA=!obj.isA;
-                    if(obj.isA){
-                        obj.
+                    if(obj.isA==true){
+                        this.buy.push(obj);
+                    }else{
+                        this.buy.forEach((obj,index)=>{
+                            if(obj.isA==false){
+                                delete(this.buy[index]);
+                            }
+                        })
                     }
                 },
                 add(){                     
                     this.list.push({name:this.nam,value:this.val,isA:false});
-                    this.list=[...this.list]
+                    this.list=[...this.list];
+                    this.showlist=[...this.list];
                     // this.buy=[...this.list];
                     this.nam="";
                     this.val=0;
@@ -125,8 +151,8 @@
                             //若用function。则此时this是Windows，故改成=》，找到this的父元素vue
                             return obj.name.includes(this.search);
                         })
-                        this.show=arr;
-                        this.list=[...this.show];  
+                        this.show=[...arr]; 
+                        this.showlist=[...this.show];
                     },
                 del(){
                     this.buy.forEach((obj2,index2)=>{    
@@ -136,6 +162,7 @@
                                 }
                     })                 
                 });
+                this.showlist=[...this.list];
                 this.flag=true;
                 }
             }
